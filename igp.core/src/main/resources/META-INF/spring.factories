@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.igrouppurchase.component.core.spring.ioc.FrameworkAutoConfiguration
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  org.igrouppurchase.component.core.spring.postprocessor.SystemPropSetter

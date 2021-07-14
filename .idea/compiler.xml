@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="igp.search" />
+        <module name="igp.message" />
+        <module name="igp.group" />
+        <module name="igp.core" />
+        <module name="igp.recommend" />
+        <module name="igp.community" />
+        <module name="igp.evaluation" />
+        <module name="igp.ad" />
+        <module name="igp.cc" />
+        <module name="igp.goods" />
+        <module name="igp.security" />
+        <module name="igp.user" />
+        <module name="igp.flow" />
+        <module name="igp.pay" />
+        <module name="igp.base" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
