@@ -16,7 +16,7 @@
 package org.igrouppurchase.component.security.encryption;
 
 import org.igrouppurchase.component.security.encryption.exception.UnsupportedEncryptionType;
-import org.igrouppurchase.component.security.encryption.impl.EncryptionType;
+import org.igrouppurchase.component.security.encryption.impl.EncryptionEnum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +43,7 @@ public final class EncryptionBuilder {
      * set encryption type.
      * @param encryptionType encryption type.
      */
-    public static void setType(EncryptionType encryptionType) {
+    public static void setType(EncryptionEnum encryptionType) {
         option.put(ENCRYPTION_TYPE, encryptionType);
     }
 
@@ -52,7 +52,7 @@ public final class EncryptionBuilder {
      * @return encryptor.
      */
     public static IEncryptor bulid() {
-        EncryptionType encryptionType = (EncryptionType)option.get(ENCRYPTION_TYPE);
+        EncryptionEnum encryptionType = (EncryptionEnum)option.get(ENCRYPTION_TYPE);
         if (encryptionType == null) {
             throw new UnsupportedEncryptionType();
         }

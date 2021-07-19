@@ -17,7 +17,7 @@ package org.igrouppurchase.component.core.spring.aware;
 
 import org.igrouppurchase.component.base.log.ISimpleLog;
 import org.igrouppurchase.component.base.log.LoggerFactory;
-import org.igrouppurchase.component.core.spring.ioc.utils.SpringUtils;
+import org.igrouppurchase.component.core.spring.ioc.util.SpringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -39,14 +39,12 @@ public class ApplicationContextRegister implements ApplicationContextAware {
 
     /**
      *setApplicationContext.
-     * @param applicationContext
-     * @throws BeansException
+     * @param applicationContext application context.
+     * @throws BeansException BeansException.
      */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        log.info(() -> {
-            return "Set applicationcontext.";
-        });
+        log.info(() -> "Set ApplicationContext.");
         SpringUtils.setApplicationContext(applicationContext);
     }
 }

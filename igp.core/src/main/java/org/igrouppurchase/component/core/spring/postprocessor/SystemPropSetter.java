@@ -15,17 +15,10 @@
  */
 package org.igrouppurchase.component.core.spring.postprocessor;
 
-import org.igrouppurchase.component.core.utils.PropertyUtils;
+import org.igrouppurchase.component.core.util.PropertyUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.MutablePropertySources;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * init system property.

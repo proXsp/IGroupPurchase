@@ -23,7 +23,7 @@ import org.igrouppurchase.component.security.encryption.IEncryptor;
  * @author yuzhanchao
  * @date 2021/7/19 11:48
  */
-public enum EncryptionType {
+public enum EncryptionEnum {
 
     /**
      * RSA Encryption Algorithm.
