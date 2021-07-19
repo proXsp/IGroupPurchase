@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.utils;
+package org.igrouppurchase.component.core.util;
 
 import org.springframework.core.env.Environment;
 
@@ -33,7 +33,7 @@ public final class PropertyUtils {
 
     /**
      * set environment.
-     * @param environment
+     * @param environment environment.
      */
     public static void setEnvironment(Environment environment) {
         PropertyUtils.environment = environment;

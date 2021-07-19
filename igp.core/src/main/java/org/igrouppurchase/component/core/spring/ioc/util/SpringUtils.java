@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.spring.ioc.utils;
+package org.igrouppurchase.component.core.spring.ioc.util;
 
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -60,8 +60,8 @@ public final class SpringUtils {
 
     /**
      * get spring bean by name.
-     * @param beanName
-     * @return
+     * @param beanName bean name.
+     * @return bean instance.
      */
     public static Object getBean(String beanName) {
         return applicationContext.getBean(beanName);
@@ -69,9 +69,9 @@ public final class SpringUtils {
 
     /**
      * get spring bean by class.
-     * @param clz
-     * @param <T>
-     * @return
+     * @param clz bean class
+     * @param <T> bean type.
+     * @return bean instance.
      */
     public static <T> T getBean(Class<T> clz) {
         return applicationContext.getBean(clz);
@@ -101,7 +101,7 @@ public final class SpringUtils {
 
     /**
      * get spring scan paths;
-     * @return
+     * @return packages.
      */
     public static String[] getPackagesToScan() {
         ConfigurableApplicationContext ac = (ConfigurableApplicationContext)applicationContext;

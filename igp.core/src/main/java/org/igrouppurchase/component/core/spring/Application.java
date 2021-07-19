@@ -15,7 +15,7 @@
  */
 package org.igrouppurchase.component.core.spring;
 
-import org.igrouppurchase.component.core.spring.ioc.utils.SpringUtils;
+import org.igrouppurchase.component.core.spring.ioc.util.SpringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
@@ -29,9 +29,9 @@ public class Application {
 
     /**
      * run spring boot application.
-     * @param primarySource
-     * @param args
-     * @return
+     * @param primarySource primary source.
+     * @param args arguments.
+     * @return application context.
      */
     public static ConfigurableApplicationContext run(Class<?> primarySource, String... args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(primarySource, args);

@@ -19,7 +19,7 @@ import org.igrouppurchase.component.base.log.ISimpleLog;
 import org.igrouppurchase.component.base.log.LoggerFactory;
 import org.igrouppurchase.component.core.entity.annotation.GEntity;
 import org.igrouppurchase.component.core.entity.model.IModel;
-import org.igrouppurchase.component.core.spring.ioc.utils.SpringUtils;
+import org.igrouppurchase.component.core.spring.ioc.util.SpringUtils;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -58,18 +58,14 @@ public class EntityClassInitializer implements ResourceLoaderAware {
      * 扫描模型.
      */
     private void scanModel() throws IOException, ClassNotFoundException {
-        LOG.info(()->{
-            return "Start initialize Entity Class.";
-        });
+        LOG.info(()-> "Start Initialize Entity Class.");
         ClassLoader classLoader = EntityClassInitializer.class.getClassLoader();
         ResourcePatternResolver resolver = ResourcePatternUtils.getResourcePatternResolver(resourceLoader);
         MetadataReaderFactory metaReader = new CachingMetadataReaderFactory(resourceLoader);
 
         String[] scanPackages = getScanPackages();
         for (String scanPackage : scanPackages) {
-            LOG.debug(()->{
-               return MessageFormat.format("Scanning path：{0} to initialize.", scanPackage);
-            });
+            LOG.debug(()-> MessageFormat.format("Scanning Path：{0} To Initialize.", scanPackage));
 
             Resource[] resources = resolver.getResources(scanPackage);
 
@@ -85,12 +81,10 @@ public class EntityClassInitializer implements ResourceLoaderAware {
                     continue;
                 }
 
-
+                // cache class TODO.
             }
         }
 
-        LOG.info(()->{
-            return "End scan EntityModel.";
-        });
+        LOG.info(()-> "End Scan EntityModel.");
     }
 }
