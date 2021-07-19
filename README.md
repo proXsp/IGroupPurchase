@@ -7,6 +7,7 @@ igp.base -- 基础模块 <br>
 igp.core -- 核心模块 <br>
 igp.security -- 安全模块 <br>
 igp.user -- 用户模块 <br>
+igp.login -- 登录模块 <br>
 igp.flow -- 流程模块 <br>
 igp.group -- 团模块 <br>
 igp.goods -- 商品模块 <br>

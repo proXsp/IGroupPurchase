@@ -24,6 +24,7 @@
         <module>igp.ad</module>
         <module>igp.pay</module>
         <module>igp.community</module>
+        <module>igp.login</module>
     </modules>
 
     <properties>
