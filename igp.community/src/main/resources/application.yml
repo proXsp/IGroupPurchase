@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: igp.community.server
+  profiles:
+    active: mysql

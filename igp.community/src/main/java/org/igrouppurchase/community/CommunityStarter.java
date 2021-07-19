@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
+package org.igrouppurchase.community;
 
-import java.io.Serializable;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Base Model.
+ * Community Server Starter.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 18:45
  */
-public interface IModel extends Serializable {
+@SpringBootApplication
+public class CommunityStarter {
 
-    Integer getLifeCycle();
-
-    void setLifeCycle(Integer lifeCycle);
+    public static void main(String[] args) {
+        SpringApplication.run(CommunityStarter.class, args);
+    }
 }

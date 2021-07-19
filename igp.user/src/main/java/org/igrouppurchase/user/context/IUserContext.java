@@ -13,19 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
+package org.igrouppurchase.user.context;
 
-import java.io.Serializable;
+import org.igrouppurchase.component.login.entity.dto.LoginDTO;
+import org.igrouppurchase.user.domain.entity.po.User;
 
 /**
- * Base Model.
+ * user context.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 20:34
  */
-public interface IModel extends Serializable {
+public interface IUserContext {
 
-    Integer getLifeCycle();
-
-    void setLifeCycle(Integer lifeCycle);
+    /**
+     * register user.
+     * @param user user.
+     * @return success.
+     */
+    boolean register(User user);
 }

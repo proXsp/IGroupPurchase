@@ -30,12 +30,17 @@ import javax.persistence.PersistenceContext;
  * @date 2021/7/8 22:22
  */
 @Configuration
-@ComponentScan(basePackages = {"com.yuzhanchao.spring.aware", "com.yuzhanchao.spring.initializer"})
+@ComponentScan(basePackages = {"org.igrouppurchase.component.core.spring.aware",
+    "org.igrouppurchase.component.core.spring.initializer",
+    "org.igrouppurchase.**.config",
+    "org.igrouppurchase.**.dao",
+    "org.igrouppurchase.**.context",
+    "org.igrouppurchase.**.service"})
 public class FrameworkAutoConfiguration {
 
     /**
      * hold entitymanager.
-     * @param entityManager
+     * @param entityManager entityManager.
      */
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {

@@ -29,7 +29,7 @@ import java.io.Serializable;
  * @date 2021/7/8 18:16
  */
 @MappedSuperclass
-public class TreeNode<ID extends Serializable> implements ITreeNode<ID> {
+public class TreeNode<ID extends Serializable> extends Model implements ITreeNode<ID> {
 
     /**
      * id.

@@ -13,19 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
-
-import java.io.Serializable;
+package org.igrouppurchase.user.domain.constant;
 
 /**
- * Base Model.
+ * AccountStatus.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 22:42
  */
-public interface IModel extends Serializable {
+public final class AccountStatus {
 
-    Integer getLifeCycle();
+    /**
+     * normal.
+     */
+    public static final int NORMAL = 0;
 
-    void setLifeCycle(Integer lifeCycle);
+    /**
+     * expire.
+     */
+    public static final int EXPIRE = 2;
+
+    /**
+     * locked.
+     */
+    public static final int LOCKED = 4;
+
+    /**
+     * disabled.
+     */
+    public static final int DISABLED = 8;
 }

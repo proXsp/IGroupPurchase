@@ -13,46 +13,48 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model.impl;
+package org.igrouppurchase.user.domain.entity.po;
 
-import org.igrouppurchase.component.core.entity.model.IIdModel;
+import org.igrouppurchase.user.domain.entity.UserDO;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
- * the default impl for IIdModel.
+ * User.
  *
  * @author yuzhanchao
- * @date 2021/7/1 11:30
+ * @date 2021/7/19 19:59
  */
-@MappedSuperclass
-public class IdModel<ID extends Serializable> extends Model implements IIdModel<ID> {
+@Entity
+@Table(name = "IGP_USER")
+public class User extends UserDO {
 
     /**
-     * id.
+     * password
      */
-    private ID uid;
+    private String passWord;
 
     /**
-     * get current id.
-     * @return id.
+     * Gets the value of passWord.
+     *
+     * @return the value of passWord
      */
-    @Column(name = "UID", length=36)
-    @Id
-    @Override
-    public ID getId() {
-        return uid;
+    @Column(name = "C_PASSWORD", length=40)
+    public String getPassWord() {
+        return passWord;
     }
 
     /**
-     * set current id.
-     * @param id id.
+     * Sets the passWord.
+     *
+     * <p>You can use getPassWord() to get the value of passWord</p>
+     *
+     * @param passWord passWord
      */
-    @Override
-    public void setId(ID id) {
-        this.uid = id;
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
+
 }

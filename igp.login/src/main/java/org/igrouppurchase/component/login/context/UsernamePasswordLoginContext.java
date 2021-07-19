@@ -13,19 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
+package org.igrouppurchase.component.login.context;
 
-import java.io.Serializable;
+import org.igrouppurchase.component.base.rest.Response;
+import org.igrouppurchase.component.login.domain.ILoginContext;
+import org.igrouppurchase.component.login.entity.dto.LoginDTO;
+import org.springframework.stereotype.Service;
 
 /**
- * Base Model.
+ * Username Password Login Context Impl.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 18:29
  */
-public interface IModel extends Serializable {
+@Service
+public class UsernamePasswordLoginContext implements ILoginContext {
 
-    Integer getLifeCycle();
-
-    void setLifeCycle(Integer lifeCycle);
+    /**
+     * do login.
+     * @param loginDTO login params.
+     * @return result.
+     */
+    @Override
+    public Response<String> login(final LoginDTO loginDTO) {
+        return null;
+    }
 }

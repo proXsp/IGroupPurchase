@@ -13,19 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
+package org.igrouppurchase.user.domain.dao;
 
-import java.io.Serializable;
+import org.igrouppurchase.component.core.entity.dao.ISimpleDao;
+import org.igrouppurchase.user.domain.entity.po.User;
+import org.springframework.stereotype.Repository;
 
 /**
- * Base Model.
+ * UserDao.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 20:28
  */
-public interface IModel extends Serializable {
-
-    Integer getLifeCycle();
-
-    void setLifeCycle(Integer lifeCycle);
+@Repository
+public interface UserDao extends ISimpleDao<User> {
 }

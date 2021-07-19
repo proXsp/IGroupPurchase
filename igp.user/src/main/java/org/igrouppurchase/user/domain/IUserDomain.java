@@ -13,19 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
+package org.igrouppurchase.user.domain;
 
-import java.io.Serializable;
+import org.igrouppurchase.user.domain.entity.UserDO;
+
+import java.util.Optional;
 
 /**
- * Base Model.
+ * user context.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 20:32
  */
-public interface IModel extends Serializable {
+public interface IUserDomain {
 
-    Integer getLifeCycle();
+    /**
+     * find one by userId.
+     * @param userId userId.
+     * @return user domainModel optional.
+     */
+    Optional<UserDO> find(String userId);
 
-    void setLifeCycle(Integer lifeCycle);
+    /**
+     * find password by userId.
+     * @param userId userId.
+     * @return password.
+     */
+    Optional<String> findPassword(String userId);
 }

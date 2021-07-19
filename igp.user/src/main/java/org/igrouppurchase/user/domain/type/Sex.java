@@ -13,19 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
-
-import java.io.Serializable;
+package org.igrouppurchase.user.domain.type;
 
 /**
- * Base Model.
+ * Sex.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 20:16
  */
-public interface IModel extends Serializable {
+public enum Sex {
 
-    Integer getLifeCycle();
+    /**
+     * male.
+     */
+    MALE,
 
-    void setLifeCycle(Integer lifeCycle);
+    /**
+     * female.
+     */
+    FEMALE
 }

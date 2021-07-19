@@ -13,19 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.component.core.entity.model;
+package org.igrouppurchase.component.login.filter;
 
-import java.io.Serializable;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 /**
- * Base Model.
+ * token authentication.
  *
  * @author yuzhanchao
- * @date 2021/7/11 0:02
+ * @date 2021/7/19 16:05
  */
-public interface IModel extends Serializable {
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    Integer getLifeCycle();
+    @Override protected void doFilterInternal(HttpServletRequest httpServletRequest,
+        javax.servlet.http.HttpServletResponse httpServletResponse, javax.servlet.FilterChain filterChain)
+        throws ServletException, IOException {
 
-    void setLifeCycle(Integer lifeCycle);
+    }
 }

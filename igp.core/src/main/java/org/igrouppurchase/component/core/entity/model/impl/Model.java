@@ -15,44 +15,51 @@
  */
 package org.igrouppurchase.component.core.entity.model.impl;
 
-import org.igrouppurchase.component.core.entity.model.IIdModel;
+import org.igrouppurchase.component.core.entity.model.IModel;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import java.io.Serializable;
 
 /**
- * the default impl for IIdModel.
+ * model.
  *
  * @author yuzhanchao
- * @date 2021/7/1 11:30
+ * @date 2021/7/19 20:54
  */
 @MappedSuperclass
-public class IdModel<ID extends Serializable> extends Model implements IIdModel<ID> {
+public class Model implements IModel {
 
     /**
-     * id.
+     * LifeCycle Of Model.
      */
-    private ID uid;
+    private transient Integer lifeCycle;
 
     /**
-     * get current id.
-     * @return id.
+     * Gets the value of lifeCycle.
+     *
+     * @return the value of lifeCycle
      */
-    @Column(name = "UID", length=36)
-    @Id
     @Override
-    public ID getId() {
-        return uid;
+    public Integer getLifeCycle() {
+        return lifeCycle;
     }
 
     /**
-     * set current id.
-     * @param id id.
+     * Sets the lifeCycle.
+     *
+     * <p>You can use getLifeCycle() to get the value of lifeCycle</p>
+     *
+     * @param lifeCycle lifeCycle
      */
     @Override
-    public void setId(ID id) {
-        this.uid = id;
+    public void setLifeCycle(Integer lifeCycle) {
+        this.lifeCycle = lifeCycle;
+    }
+
+    /**
+     * to string.
+     * @return string of this model.
+     */
+    @Override public String toString() {
+        return "lifeCycle=" + lifeCycle + "; ";
     }
 }

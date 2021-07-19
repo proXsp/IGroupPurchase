@@ -48,6 +48,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
         <maven-flatten-version>1.1.0</maven-flatten-version>
+        <org.apache.version>3.9</org.apache.version>
     </properties>
 
     <build>
@@ -59,6 +60,7 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
@@ -127,6 +129,7 @@
                 <version>${maven-project-info-reports-plugin-version}</version>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>${maven-resources-plugin.version}</version>
                 <configuration>
@@ -218,6 +221,11 @@
                 <version>${apache.codec.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${org.apache.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
