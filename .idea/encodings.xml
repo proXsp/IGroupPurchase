@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/igp.ad/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.ad/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.base/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.cc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.cc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.community/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.community/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.evaluation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.evaluation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.flow/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.flow/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.goods/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.goods/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.group/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.group/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.login/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.login/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.message/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.message/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.pay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.pay/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.recommend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.recommend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.search/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.security/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/igp.user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

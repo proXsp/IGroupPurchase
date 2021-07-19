@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="igp.search" />
         <module name="igp.message" />
+        <module name="igp.login" />
         <module name="igp.group" />
         <module name="igp.core" />
         <module name="igp.recommend" />

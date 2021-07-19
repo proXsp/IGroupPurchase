@@ -6,3 +6,20 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+.classpath
+.project
+.settings
+target
+.idea
+.vscode
+.DS_Store
+.factorypath
+/logs
+*.iml
+node_modules
+test/derby.log
+derby.log
+work
+test/logs
+yarn.lock
+.flattened-pom.xml
