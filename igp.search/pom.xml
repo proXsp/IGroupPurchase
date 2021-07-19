@@ -11,6 +11,8 @@
 
     <artifactId>igp.search</artifactId>
 
+    <name>igp-search ${igp.version}</name>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
