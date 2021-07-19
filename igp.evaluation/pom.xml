@@ -11,6 +11,8 @@
 
     <artifactId>igp.evaluation</artifactId>
 
+    <name>igp-evaluation ${igp.version}</name>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
