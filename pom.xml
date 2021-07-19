@@ -7,7 +7,7 @@
     <groupId>org.igrouppurchase</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <modules>
         <module>igp.base</module>
         <module>igp.core</module>
@@ -30,11 +30,136 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <revision>1.0-SNAPSHOT</revision>
         <igp.version>1.0-SNAPSHOT</igp.version>
+        <igp.groupId>org.igrouppurchase</igp.groupId>
         <spring.version>2.4.8</spring.version>
         <mysql.version>5.1.46</mysql.version>
         <nacos.version>2021.1</nacos.version>
+        <apache.codec.version>1.15</apache.codec.version>
+        <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-pmd-plugin.version>3.8</maven-pmd-plugin.version>
+        <alibaba-p3c-version>2.1.1</alibaba-p3c-version>
+        <maven-site-plugin-version>3.3</maven-site-plugin-version>
+        <maven-project-info-reports-plugin-version>3.0.0</maven-project-info-reports-plugin-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+        <maven-flatten-version>1.1.0</maven-flatten-version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <compilerVersion>${maven.compiler.source}</compilerVersion>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven-pmd-plugin.version}</version>
+                <configuration>
+                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+                    <targetJdk>${maven.compiler.target}</targetJdk>
+                    <printFailingErrors>true</printFailingErrors>
+                    <rulesets>
+                        <ruleset>rulesets/java/ali-comment.xml</ruleset>
+                        <ruleset>rulesets/java/ali-concurrent.xml</ruleset>
+                        <ruleset>rulesets/java/ali-constant.xml</ruleset>
+                        <ruleset>rulesets/java/ali-exception.xml</ruleset>
+                        <ruleset>rulesets/java/ali-flowcontrol.xml</ruleset>
+                        <ruleset>rulesets/java/ali-naming.xml</ruleset>
+                        <ruleset>rulesets/java/ali-oop.xml</ruleset>
+                        <ruleset>rulesets/java/ali-orm.xml</ruleset>
+                        <ruleset>rulesets/java/ali-other.xml</ruleset>
+                        <ruleset>rulesets/java/ali-set.xml</ruleset>
+                    </rulesets>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>pmd-check-verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>pmd-pmd-site</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>pmd</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>com.alibaba.p3c</groupId>
+                        <artifactId>p3c-pmd</artifactId>
+                        <version>${alibaba-p3c-version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin-version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${maven-project-info-reports-plugin-version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${maven-flatten-version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencyManagement>
         <dependencies>
@@ -45,22 +170,24 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring.version}</version>
             </dependency>
 
@@ -84,6 +211,12 @@
                 <version>${nacos.version}</version>
             </dependency>
 
+            <!--Apache codec-->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${apache.codec.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
