@@ -17,11 +17,13 @@ package org.igrouppurchase.user.config;
 
 import org.igrouppurchase.user.auth.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * LoginConfig.
@@ -29,7 +31,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * @author yuzhanchao
  * @date 2021/7/19 18:35
  */
-@Configuration
+@EnableWebSecurity
 public class LoginConfig extends WebSecurityConfigurerAdapter {
 
     @Bean("userDetailsImpl")
@@ -37,9 +39,21 @@ public class LoginConfig extends WebSecurityConfigurerAdapter {
         return new UserDetailsServiceImpl();
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
     public void configure(AuthenticationManagerBuilder builder) throws Exception {
         super.configure(builder);
-        builder.userDetailsService(userDetailsImpl()).passwordEncoder(new BCryptPasswordEncoder());
+        builder.userDetailsService(userDetailsImpl()).passwordEncoder(passwordEncoder());
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/user/register").permitAll().and()
+            .authorizeRequests().anyRequest().authenticated()
+            .and().csrf().disable();
     }
 }

@@ -55,6 +55,6 @@ public class UserDomain implements IUserDomain {
 
     @Override
     public Optional<String> findPassword(String userId) {
-        return userDao.findById(userId).map(User::getPassWord);
+        return userDao.findById(userId).map(User::getPassword);
     }
 }

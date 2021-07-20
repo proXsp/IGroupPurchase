@@ -34,16 +34,16 @@ public class User extends UserDO {
     /**
      * password
      */
-    private String passWord;
+    private String password;
 
     /**
-     * Gets the value of passWord.
+     * Gets the value of password.
      *
-     * @return the value of passWord
+     * @return the value of password
      */
-    @Column(name = "C_PASSWORD", length=40)
-    public String getPassWord() {
-        return passWord;
+    @Column(name = "C_PASSWORD", length=72)
+    public String getPassword() {
+        return password;
     }
 
     /**
@@ -51,10 +51,10 @@ public class User extends UserDO {
      *
      * <p>You can use getPassWord() to get the value of passWord</p>
      *
-     * @param passWord passWord
+     * @param password password
      */
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

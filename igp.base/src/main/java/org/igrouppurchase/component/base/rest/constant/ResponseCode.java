@@ -13,31 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.user.context;
-
-import org.igrouppurchase.component.login.entity.dto.LoginDTO;
-import org.igrouppurchase.user.domain.entity.po.User;
-import org.igrouppurchase.user.exception.NoSuchUserException;
+package org.igrouppurchase.component.base.rest.constant;
 
 /**
- * user context.
+ * ResponseCode.
  *
  * @author yuzhanchao
- * @date 2021/7/19 20:34
+ * @date 2021/7/20 10:22
  */
-public interface IUserContext {
+public final class ResponseCode {
 
-    /**
-     * login.
-     * @param loginDTO login transfer object.
-     * @return tokenId.
-     */
-    String login(LoginDTO loginDTO) throws NoSuchUserException;
+    public static final int DEFAULT = 0;
 
-    /**
-     * register user.
-     * @param user user.
-     * @return success.
-     */
-    boolean register(User user);
+    public static final int ERROR = 10000;
+
+    public static final int LOGIN_FAIL = 20001;
 }

@@ -15,10 +15,14 @@
  */
 package org.igrouppurchase.user.context;
 
+import org.igrouppurchase.component.login.entity.dto.LoginDTO;
 import org.igrouppurchase.user.domain.IUserDomain;
+import org.igrouppurchase.user.domain.dao.UserDao;
 import org.igrouppurchase.user.domain.entity.po.User;
+import org.igrouppurchase.user.exception.NoSuchUserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,15 +37,56 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserContext implements IUserContext {
 
     /**
-     * user dao.
+     * user domain.
      */
     @Autowired
     private IUserDomain userDomain;
 
+    /**
+     * user dao.
+     */
+    @Autowired
+    private UserDao userDao;
+
+    /**
+     * PasswordEncoder.
+     */
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public String login(LoginDTO loginDTO) throws NoSuchUserException {
+        String userId = loginDTO.getUserName();
+        String password = loginDTO.getPassword();
+        String encodedPassword = userDomain.findPassword(userId).orElse(null);
+        if (encodedPassword == null) {
+            throw new NoSuchUserException(userId);
+        }
+
+        if (passwordEncoder.matches(password, encodedPassword)) {
+            // generate token and record TODO.
+        } else {
+            throw new NoSuchUserException(userId);
+        }
+
+        return null;
+    }
+
     @Override
     public boolean register(User user) {
-        // TODO.
-        new BCryptPasswordEncoder().encode(user.getPassWord());
-        return false;
+        // OTHER AUTH TODO.
+
+        user.setPassword(encodePassword(user.getPassword()));
+        userDao.save(user);
+        return true;
+    }
+
+    /**
+     * encode password.
+     * @param password password.
+     * @return encode password.
+     */
+    private String encodePassword(final String password) {
+        return new BCryptPasswordEncoder().encode(password);
     }
 }

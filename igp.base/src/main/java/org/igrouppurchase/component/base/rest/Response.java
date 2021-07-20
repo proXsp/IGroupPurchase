@@ -15,6 +15,8 @@
  */
 package org.igrouppurchase.component.base.rest;
 
+import org.igrouppurchase.component.base.rest.constant.ResponseCode;
+
 import java.io.Serializable;
 
 /**
@@ -55,9 +57,11 @@ public class Response<T> implements Serializable {
      * <p>You can use getCode() to get the value of code</p>
      *
      * @param code code
+     * @return Response<T> this.
      */
-    public void setCode(Integer code) {
+    public Response<T> setCode(Integer code) {
         this.code = code;
+        return this;
     }
 
     /**
@@ -75,9 +79,11 @@ public class Response<T> implements Serializable {
      * <p>You can use getMessage() to get the value of message</p>
      *
      * @param message message
+     * @return Response<T> this.
      */
-    public void setMessage(String message) {
+    public Response<T> setMessage(String message) {
         this.message = message;
+        return this;
     }
 
     /**
@@ -95,8 +101,23 @@ public class Response<T> implements Serializable {
      * <p>You can use getData() to get the value of data</p>
      *
      * @param data data
+     * @return Response<T> this.
      */
-    public void setData(T data) {
+    public Response<T> setData(T data) {
         this.data = data;
+        return this;
+    }
+
+    /**
+     * of .
+     * @param data response data.
+     * @param <T> Type.
+     * @return response.
+     */
+    public static <T> Response<T> of (T data) {
+        Response<T> response = new Response<>();
+        response.setData(data);
+        response.setCode(ResponseCode.DEFAULT);
+        return response;
     }
 }
