@@ -51,7 +51,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return new UserDetails() {
             @Override public String getPassword() {
-                return user.getPassWord();
+                return user.getPassword();
             }
 
             @Override public String getUsername() {
@@ -65,22 +65,22 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
             @Override public boolean isAccountNonExpired() {
                 // TODO.
-                return false;
+                return true;
             }
 
             @Override public boolean isAccountNonLocked() {
                 // TODO.
-                return false;
+                return true;
             }
 
             @Override public boolean isCredentialsNonExpired() {
                 // TODO.
-                return false;
+                return true;
             }
 
             @Override public boolean isEnabled() {
                 // TODO.
-                return false;
+                return true;
             }
         };
     }

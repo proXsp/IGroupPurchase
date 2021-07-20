@@ -15,6 +15,8 @@
  */
 package org.igrouppurchase.user.service;
 
+import org.apache.commons.lang3.StringUtils;
+import org.igrouppurchase.component.base.i18n.I18nMessage;
 import org.igrouppurchase.component.base.rest.Response;
 import org.igrouppurchase.user.context.IUserContext;
 import org.igrouppurchase.user.domain.entity.po.User;
@@ -42,10 +44,14 @@ public class UserService {
 
     @PostMapping("register")
     public Response<Boolean> register(@RequestBody User user) {
-        userContext.register(user);
-
-        // TODO.
-        return null;
+        if (user == null || StringUtils.isAnyBlank(user.getId(), user.getPassword())) {
+            return Response.of(false).setMessage(I18nMessage.getMessage("Incomplete registration information."));
+        }
+        boolean success = userContext.register(user);
+        if (!success) {
+            return Response.of(false).setMessage(I18nMessage.getMessage("register fail."));
+        }
+        return Response.of(true);
     }
 
 }

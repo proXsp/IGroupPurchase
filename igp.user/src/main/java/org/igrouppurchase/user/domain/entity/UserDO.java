@@ -177,8 +177,7 @@ public class UserDO extends Model implements IIdModel<String> {
      *
      * @return the value of accountStatus
      */
-    @Enumerated
-    @Column(name = "C_ACCOUNTSTATUS", length = 1)
+    @Column(name = "C_ACCOUNTSTATUS", length = 2, columnDefinition = "int default 0")
     public Integer getAccountStatus() {
         return accountStatus;
     }

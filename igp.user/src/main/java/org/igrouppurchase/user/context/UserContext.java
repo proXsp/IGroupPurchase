@@ -15,12 +15,16 @@
  */
 package org.igrouppurchase.user.context;
 
+import org.igrouppurchase.component.base.log.ILog;
+import org.igrouppurchase.component.base.log.LoggerFactory;
 import org.igrouppurchase.user.domain.IUserDomain;
+import org.igrouppurchase.user.domain.dao.UserDao;
 import org.igrouppurchase.user.domain.entity.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 /**
  * user context.
@@ -33,15 +37,44 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserContext implements IUserContext {
 
     /**
-     * user dao.
+     * log.
+     */
+    private final ILog LOG = LoggerFactory.getLog(UserContext.class);
+
+    /**
+     * user domain.
      */
     @Autowired
     private IUserDomain userDomain;
 
+    /**
+     * user dao.
+     */
+    @Autowired
+    private UserDao userDao;
+
     @Override
     public boolean register(User user) {
-        // TODO.
-        new BCryptPasswordEncoder().encode(user.getPassWord());
-        return false;
+        // OTHER AUTH TODO.
+        try {
+            user.setPassword(encodePassword(user.getPassword()));
+            userDao.save(user);
+        } catch (Throwable e) {
+            if (LOG.isErrorEnabled()) {
+                LOG.error("用户注册失败：", e);
+            }
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * encode password.
+     * @param password
+     * @return
+     */
+    private String encodePassword(final String password) {
+        return new BCryptPasswordEncoder().encode(password);
     }
 }
