@@ -15,16 +15,16 @@
  */
 package org.igrouppurchase.user.context;
 
-import org.igrouppurchase.component.base.log.ILog;
-import org.igrouppurchase.component.base.log.LoggerFactory;
+import org.igrouppurchase.component.login.entity.dto.LoginDTO;
 import org.igrouppurchase.user.domain.IUserDomain;
 import org.igrouppurchase.user.domain.dao.UserDao;
 import org.igrouppurchase.user.domain.entity.po.User;
+import org.igrouppurchase.user.exception.NoSuchUserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 /**
  * user context.
@@ -35,11 +35,6 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 @Service
 @Transactional
 public class UserContext implements IUserContext {
-
-    /**
-     * log.
-     */
-    private final ILog LOG = LoggerFactory.getLog(UserContext.class);
 
     /**
      * user domain.
@@ -53,26 +48,43 @@ public class UserContext implements IUserContext {
     @Autowired
     private UserDao userDao;
 
+    /**
+     * PasswordEncoder.
+     */
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public String login(LoginDTO loginDTO) throws NoSuchUserException {
+        String userId = loginDTO.getUserName();
+        String password = loginDTO.getPassword();
+        String encodedPassword = userDomain.findPassword(userId).orElse(null);
+        if (encodedPassword == null) {
+            throw new NoSuchUserException(userId);
+        }
+
+        if (passwordEncoder.matches(password, encodedPassword)) {
+            // generate token and record TODO.
+        } else {
+            throw new NoSuchUserException(userId);
+        }
+
+        return null;
+    }
+
     @Override
     public boolean register(User user) {
         // OTHER AUTH TODO.
-        try {
-            user.setPassword(encodePassword(user.getPassword()));
-            userDao.save(user);
-        } catch (Throwable e) {
-            if (LOG.isErrorEnabled()) {
-                LOG.error("用户注册失败：", e);
-            }
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-            return false;
-        }
+
+        user.setPassword(encodePassword(user.getPassword()));
+        userDao.save(user);
         return true;
     }
 
     /**
      * encode password.
-     * @param password
-     * @return
+     * @param password password.
+     * @return encode password.
      */
     private String encodePassword(final String password) {
         return new BCryptPasswordEncoder().encode(password);

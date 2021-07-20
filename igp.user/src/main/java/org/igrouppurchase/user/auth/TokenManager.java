@@ -13,31 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.igrouppurchase.user.context;
-
-import org.igrouppurchase.component.login.entity.dto.LoginDTO;
-import org.igrouppurchase.user.domain.entity.po.User;
-import org.igrouppurchase.user.exception.NoSuchUserException;
+package org.igrouppurchase.user.auth;
 
 /**
- * user context.
+ * TokenManager.
  *
  * @author yuzhanchao
- * @date 2021/7/19 20:34
+ * @date 2021/7/20 16:30
  */
-public interface IUserContext {
+public class TokenManager {
 
-    /**
-     * login.
-     * @param loginDTO login transfer object.
-     * @return tokenId.
-     */
-    String login(LoginDTO loginDTO) throws NoSuchUserException;
-
-    /**
-     * register user.
-     * @param user user.
-     * @return success.
-     */
-    boolean register(User user);
 }

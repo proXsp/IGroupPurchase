@@ -26,4 +26,6 @@ public final class ResponseCode {
     public static final int DEFAULT = 0;
 
     public static final int ERROR = 10000;
+
+    public static final int LOGIN_FAIL = 20001;
 }

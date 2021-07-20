@@ -52,7 +52,8 @@ public class LoginConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/user/register").permitAll();
-        super.configure(http);
+        http.authorizeRequests().antMatchers("/user/register").permitAll().and()
+            .authorizeRequests().anyRequest().authenticated()
+            .and().csrf().disable();
     }
 }
