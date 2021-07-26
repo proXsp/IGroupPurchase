@@ -25,6 +25,7 @@
         <module>igp.pay</module>
         <module>igp.community</module>
         <module>igp.login</module>
+        <module>igp.common</module>
     </modules>
 
     <properties>
@@ -33,7 +34,8 @@
         <revision>1.0-SNAPSHOT</revision>
         <igp.version>1.0-SNAPSHOT</igp.version>
         <igp.groupId>org.igrouppurchase</igp.groupId>
-        <spring.version>2.4.8</spring.version>
+        <spring.boot.version>2.4.8</spring.boot.version>
+        <spring.version>5.3.8</spring.version>
         <mysql.version>5.1.46</mysql.version>
         <nacos.version>2021.1</nacos.version>
         <apache.codec.version>1.15</apache.codec.version>
@@ -171,26 +173,31 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring.version}</version>
+                <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring.version}</version>
+                <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
-                <version>${spring.version}</version>
+                <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
-                <version>${spring.version}</version>
+                <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
             </dependency>
 

@@ -12,6 +12,7 @@
         <module name="igp.group" />
         <module name="igp.core" />
         <module name="igp.recommend" />
+        <module name="igp.common" />
         <module name="igp.community" />
         <module name="igp.evaluation" />
         <module name="igp.ad" />

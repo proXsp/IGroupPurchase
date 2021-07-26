@@ -52,7 +52,7 @@ public class LoginConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/user/register").permitAll().and()
+        http.authorizeRequests().antMatchers("/v1/user/register", "/v1/user/login").permitAll().and()
             .authorizeRequests().anyRequest().authenticated()
             .and().csrf().disable();
     }

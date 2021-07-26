@@ -17,16 +17,18 @@ package org.igrouppurchase.component.core.entity.model.impl;
 
 import org.igrouppurchase.component.core.entity.model.IModel;
 
-import javax.persistence.MappedSuperclass;
-
 /**
  * model.
  *
  * @author yuzhanchao
  * @date 2021/7/19 20:54
  */
-@MappedSuperclass
 public class Model implements IModel {
+
+    /**
+     * serial version.
+     */
+    private static final long serialVersionUID = -3294912754997392209L;
 
     /**
      * LifeCycle Of Model.
